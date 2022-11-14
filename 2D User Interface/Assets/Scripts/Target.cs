@@ -14,7 +14,7 @@ public class Target : MonoBehaviour
     void Start()
     {
         _targetRb = GetComponent<Rigidbody2D>();
-        _gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         _targetRb.AddForce(Vector2.up * RandomizeForce(), ForceMode2D.Impulse);
         _targetRb.AddTorque(RandomizeTorque());
     }
@@ -26,6 +26,7 @@ public class Target : MonoBehaviour
     }
     private void OnMouseDown() 
     {
+        _gameManager.UpdateScore(PointValue);
         Destroy(this.gameObject);    
     }
     private void OnTriggerEnter2D(Collider2D other) 
