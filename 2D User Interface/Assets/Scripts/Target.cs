@@ -32,10 +32,10 @@ public class Target : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) 
     {
         Destroy(this.gameObject);
-        if(!other.gameObject.CompareTag("Bad"))
+        if(!gameObject.CompareTag("Bad"))
         {
             //Debug.Log("Game Over");
-            _gameManager.IsGameActive = false;
+            _gameManager.GameOver();
         }    
     }
     private float RandomizeForce()
