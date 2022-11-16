@@ -11,11 +11,21 @@ public class GameManager : MonoBehaviour
     public int  Score = 0;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI GameOverText;
+    public TextMeshProUGUI GameTitleText;
+    public Button StartButton;
     public Button RestartButton;
     public List<GameObject> Target;
     // Start is called before the first frame update
     void Start()
     {
+        IsGameActive = false;
+    }
+    public void StartGame()
+    {
+        GameTitleText.gameObject.SetActive(false);
+        StartButton.gameObject.SetActive(false);
+        ScoreText.gameObject.SetActive(true);
+        IsGameActive = true;
         ScoreText.text = "Score: " + Score;
         StartCoroutine(SpawnTarget());
     }
