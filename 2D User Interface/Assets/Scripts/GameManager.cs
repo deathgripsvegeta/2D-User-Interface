@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     public bool IsGameActive = true;
     public int  Score = 0;
-    public int SpawnRate = 1;
+    public float SpawnRate = 1;
     public TextMeshProUGUI ScoreText;
     public TextMeshProUGUI GameOverText;
     //public TextMeshProUGUI GameTitleText;
@@ -54,8 +54,8 @@ public class GameManager : MonoBehaviour
     IEnumerator SpawnTarget()
     {
         while(IsGameActive)
-        { 
-            yield return new WaitForSeconds(1);
+        {
+            yield return new WaitForSeconds(SpawnRate);
             int index = Random.Range(0, Target.Count);
             Instantiate(Target[index]);
             
